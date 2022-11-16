@@ -46,6 +46,8 @@ public class Controlador {
         return "peliculas";
     }*/
 
+
+
     @RequestMapping("/peliculas")
     public String peticion5(Usuario user, ModelMap model) {
         System.out.println(user.getUser());
@@ -71,6 +73,8 @@ public class Controlador {
         model.addAttribute("usuarios", coleccionUsuarios);
         return "peliculas";
     }
+
+
 
 
 }
