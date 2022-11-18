@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -74,7 +76,31 @@ public class Controlador {
         return "peliculas";
     }
 
+    @RequestMapping("/recomendaciones")
+    public ModelAndView peticion7(HttpServletRequest request){
+        HttpSession sesion = request.getSession();
+        ModelAndView mv = new ModelAndView();
+        //mv.addObject("recomendacion","");
+        mv.setViewName("recomendaciones");
+        return mv;
+    }
+
+    @RequestMapping("/recomendar")
+    public ModelAndView peticion8(HttpServletRequest request){
+        HttpSession sesion = request.getSession();
+        ModelAndView mv = new ModelAndView();
 
 
+        // Guardar la nueva recomendación.
 
+        mv.setViewName("peliculas");
+        return mv;
+    }
+
+/*    @RequestMapping("/error")
+    public ModelAndView peticion0(HttpServletResponse response) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("error");
+        return mv;
+    }*/
 }

@@ -7,10 +7,12 @@
 <body>
 <h2>RECOMENDACIONES</h2>
 Añade tu recomendación: <br>
-
-<textarea name="comentarios" rows="10" cols="40"></textarea>
+<form th:action="@{/recomendar}"  method="post">
+<textarea name="comentarios" rows="10" cols="40" > </textarea>
 <br>
 
-<button onclick="">Añade la recomendacion</button>
+<button type="submit">Añade la recomendacion</button>
+</form>
 </body>
+
 </html>
