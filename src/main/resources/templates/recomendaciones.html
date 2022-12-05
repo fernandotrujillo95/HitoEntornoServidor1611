@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" th:href="@{recomendaciones.css}"/>
+    <title>Recomendaciones</title>
 </head>
 <body>
 <h2>RECOMENDACIONES</h2>
 Añade tu recomendación: <br>
-<form th:action="@{/recomendar}"  method="post">
-<textarea name="comentarios" rows="10" cols="40" > </textarea>
+<form th:action="@{/recomendar}"  method="post" th:object="${recomendacion}">
+<textarea rows="10" cols="40" th:field="*{pelicula}" > </textarea>
 <br>
 
 <button type="submit">Añade la recomendacion</button>

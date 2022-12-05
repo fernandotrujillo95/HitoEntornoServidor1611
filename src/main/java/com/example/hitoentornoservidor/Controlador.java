@@ -63,7 +63,7 @@ public class Controlador {
         else {
             if (user.getPassword().equals(login.getPassword())) {
                 model.addAttribute("sms", "Bienvenido "+user.getUser());
-                this.login.setLogin(user);
+                this.login.setLogin(login);
             }
             else {
                 model.addAttribute("sms", "El password no es correcto");
@@ -80,14 +80,15 @@ public class Controlador {
     public ModelAndView peticion7(HttpServletRequest request){
         HttpSession sesion = request.getSession();
         ModelAndView mv = new ModelAndView();
-        //mv.addObject("recomendacion","");
+        mv.addObject("recomendacion",new Recomendacion());
         mv.setViewName("recomendaciones");
         return mv;
     }
 
     @RequestMapping("/recomendar")
-    public ModelAndView peticion8(HttpServletRequest request){
+    public ModelAndView peticion8(HttpServletRequest request, Recomendacion r){
         HttpSession sesion = request.getSession();
+        login.getLogin().getRecomendaciones().add(r.getPelicula());
         ModelAndView mv = new ModelAndView();
 
 
